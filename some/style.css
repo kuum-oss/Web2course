@@ -1,0 +1,620 @@
+/* ==========================================================
+   ЗМІННІ ТА СКИДАННЯ (Modern CSS)
+   ========================================================== */
+:root {
+    --primary-color: #2b7a3e;
+    --primary-dark: #1e5c2d;
+    --primary-light: rgba(43, 122, 62, 0.1);
+    --accent-color: #f1c40f;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --text-light: #ffffff;
+    --bg-light: #f8fafc;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 10px 40px rgba(0,0,0,0.05);
+    --shadow-hover: 0 20px 50px rgba(0,0,0,0.1);
+    --radius: 16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+/* Анімація появи */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.8s ease forwards; }
+
+/* ==========================================================
+   ШАПКА (Glassmorphism Header)
+   ========================================================== */
+.modern-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Ефект матового скла */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.header-container { display: flex; justify-content: space-between; align-items: center; height: 85px; }
+
+.logo { display: flex; align-items: center; gap: 15px; }
+.logo-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white; padding: 12px 16px; border-radius: 12px;
+    font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(43, 122, 62, 0.3);
+}
+.logo-text strong { display: block; font-size: 1.15rem; color: var(--text-dark); }
+.logo-text span { font-size: 0.85rem; color: var(--text-muted); }
+
+.main-nav { display: flex; gap: 35px; }
+.main-nav a {
+    color: var(--text-muted); font-weight: 600; font-size: 0.95rem;
+    padding: 30px 0; border-bottom: 3px solid transparent;
+}
+.main-nav a:hover { color: var(--primary-color); }
+.main-nav a.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+
+/* ==========================================================
+   КНОПКИ
+   ========================================================== */
+.btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--primary-color); color: white;
+    padding: 12px 28px; border-radius: 10px; font-weight: 600;
+    box-shadow: 0 4px 15px rgba(43, 122, 62, 0.2); border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(43, 122, 62, 0.3); color: white;}
+.btn-outline {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: white; border: 2px solid white;
+    padding: 12px 28px; border-radius: 10px; font-weight: 600;
+}
+.btn-outline:hover { background: white; color: var(--text-dark); transform: translateY(-3px); }
+.btn-large { padding: 16px 40px; font-size: 1.1rem; }
+
+/* ==========================================================
+   ЗАГОЛОВКИ СТОРІНОК (Page Headers)
+   ========================================================== */
+.page-header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: white; padding: 80px 0 60px; text-align: center; margin-bottom: 60px;
+}
+.page-header h1 { font-size: 3rem; margin-bottom: 15px; }
+.page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+/* ==========================================================
+   ГОЛОВНИЙ ЕКРАН (HERO)
+   ========================================================== */
+.hero-section {
+    position: relative; height: 85vh; min-height: 600px;
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1920') center/cover;
+    display: flex; align-items: center;
+}
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 45, 25, 0.95) 0%, rgba(15, 45, 25, 0.4) 100%); }
+.hero-content { position: relative; z-index: 1; color: white; max-width: 650px; }
+.badge {
+    display: inline-block; background: var(--accent-color); color: var(--text-dark);
+    padding: 6px 16px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+}
+.hero-content h1 { font-size: 4rem; margin-bottom: 20px; letter-spacing: -1px; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; line-height: 1.8; }
+.hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+
+/* ==========================================================
+   ШВИДКІ ПОСИЛАННЯ (Quick Links)
+   ========================================================== */
+/* ==========================================================
+   ШВИДКІ ПОСИЛАННЯ (НОВИЙ ПРЕМІУМ ДИЗАЙН)
+   ========================================================== */
+.quick-links { margin-top: -60px; position: relative; z-index: 10; padding-bottom: 60px; }
+.links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+/* Сама картка */
+.link-card {
+    position: relative;
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--radius); /* 16px */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.03);
+    /* Плавний пружинний ефект (cubic-bezier) */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    z-index: 1;
+}
+
+/* Кольорова градієнтна лінія зверху (прихована за замовчуванням) */
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+/* Ефекти для картки ПРИ НАВЕДЕННІ */
+.link-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(43, 122, 62, 0.12); /* Тінь в тон головного зеленого кольору */
+    border-color: rgba(43, 122, 62, 0.1);
+}
+
+/* Показуємо верхню лінію */
+.link-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Дизайн іконки (у квадратику з фоном) */
+.link-icon {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: var(--bg-light); /* Світло-сірий фон */
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+/* Анімація іконки при наведенні на картку */
+.link-card:hover .link-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(43, 122, 62, 0.1); /* Стає блідо-зеленим */
+    box-shadow: 0 10px 20px rgba(43, 122, 62, 0.1);
+}
+
+.link-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: 1.35rem;
+    transition: color 0.3s ease;
+}
+
+.link-card:hover h3 {
+    color: var(--primary-color); /* Заголовок стає зеленим */
+}
+
+.link-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Стрілочка, яка виїжджає при наведенні */
+.link-card::after {
+    content: '→';
+    position: absolute;
+    bottom: 35px;
+    right: 30px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.link-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* ==========================================================
+   КАРТКИ СПЕЦІАЛЬНОСТЕЙ
+   ========================================================== */
+.programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.program-card {
+    background: white; border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow-soft); display: flex; flex-direction: column;
+}
+.program-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+.program-image { position: relative; height: 240px; overflow: hidden; }
+.program-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.program-card:hover .program-image img { transform: scale(1.08); }
+.program-badge {
+    position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.95);
+    color: var(--primary-color); font-weight: 800; padding: 8px 16px; border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);
+}
+.program-content { padding: 35px; display: flex; flex-direction: column; flex-grow: 1; }
+.program-content h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px; }
+.program-content p { color: var(--text-muted); margin-bottom: 25px; flex-grow: 1; }
+.read-more {
+    display: inline-flex; align-items: center; gap: 8px; color: var(--primary-color);
+    font-weight: 700; font-size: 1rem;
+}
+.read-more:hover { gap: 12px; color: var(--primary-dark); } /* Стрілка від'їжджає вправо */
+
+/* ==========================================================
+   СТАТИСТИКА
+   ========================================================== */
+.stats-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white; padding: 80px 0; margin: 60px 0; border-radius: var(--radius);
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+.stat-number { display: block; font-size: 4rem; font-family: var(--font-heading); font-weight: 800; color: var(--accent-color); margin-bottom: 5px; }
+.stat-label { font-size: 1.1rem; font-weight: 600; opacity: 0.9; }
+
+/* ==========================================================
+   КОНТАКТИ ТА ПРО НАС (Grids)
+   ========================================================== */
+.contact-grid, .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+.contact-info-card { background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-soft); margin-bottom: 20px; }
+.contact-info-card h3 { margin-bottom: 15px; color: var(--primary-color); }
+.contact-info-card p { color: var(--text-muted); font-size: 1.1rem; }
+
+.contact-form { background: white; padding: 50px; border-radius: var(--radius); box-shadow: var(--shadow-soft); }
+.form-group { margin-bottom: 25px; }
+.form-group label { display: block; margin-bottom: 10px; font-weight: 600; color: var(--text-dark); }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 16px; border: 2px solid #e2e8f0; border-radius: 10px;
+    font-family: var(--font-body); font-size: 1rem; transition: var(--transition); background: var(--bg-light);
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--primary-color); outline: none; background: white; }
+
+/* ==========================================================
+   ЕТАПИ ВСТУПУ (Timeline)
+   ========================================================== */
+.admission-steps { list-style: none; padding: 0; max-width: 800px; margin: 0 auto; position: relative; }
+/* Вертикальна лінія */
+.admission-steps::before {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 35px;
+    width: 2px; background: var(--primary-light); z-index: 0;
+}
+.step-item {
+    display: flex; gap: 30px; background: white; padding: 40px; border-radius: var(--radius);
+    box-shadow: var(--shadow-soft); margin-bottom: 30px; position: relative; z-index: 1;
+}
+.step-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.step-number {
+    background: var(--primary-color); color: white; width: 70px; height: 70px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    font-family: var(--font-heading); font-weight: 800; flex-shrink: 0;
+    box-shadow: 0 0 0 10px white; /* Щоб перекрити лінію */
+}
+.step-content h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 15px; }
+.step-content p { color: var(--text-muted); font-size: 1.05rem; }
+
+/* ==========================================================
+   ПІДВАЛ (Footer) - НОВИЙ
+   ========================================================== */
+.modern-footer { background: #0f172a; color: white; padding: 80px 0 30px; margin-top: 80px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-col h3 { font-size: 1.3rem; margin-bottom: 25px; color: white; }
+.footer-col p { color: #94a3b8; margin-bottom: 20px; line-height: 1.8; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 15px; }
+.footer-links a { color: #94a3b8; }
+.footer-links a:hover { color: var(--accent-color); padding-left: 5px; }
+.footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #64748b; font-size: 0.9rem; }
+/* ==========================================================
+   ДЕТАЛІ СПЕЦІАЛЬНОСТІ (Плаваючий та сучасний дизайн)
+   ========================================================== */
+/* Анімація левітації */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+.floating-element.delay-1 { animation-delay: 1s; }
+.floating-element.delay-2 { animation-delay: 2s; }
+
+/* Hero для спеціальності з паралаксом */
+.program-detail-hero {
+    position: relative;
+    padding: 120px 0 100px;
+    background-color: var(--primary-dark);
+    background-blend-mode: overlay;
+    color: white;
+    overflow: hidden;
+}
+.hero-glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.hero-glass-card h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+.hero-glass-card .badge { background: white; color: var(--primary-color); font-size: 1.2rem; margin-bottom: 20px;}
+
+/* Плаваючі бейджі на фоні */
+.floating-badges { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.f-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 25px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.f-badge:nth-child(1) { top: 20%; right: 15%; }
+.f-badge:nth-child(2) { bottom: 20%; right: 25%; }
+.f-badge:nth-child(3) { top: 40%; right: 5%; }
+
+/* Блок "Чого ви навчитесь" */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 80px;
+}
+.skill-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    border-top: 5px solid var(--primary-color);
+    transition: var(--transition);
+}
+.skill-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+.skill-card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--text-dark); }
+.skill-card p { color: var(--text-muted); }
+
+/* Блок "Ким я зможу працювати" (Glass Cards on Light) */
+.career-section { background: var(--bg-light); padding: 80px 0; }
+.career-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 40px;}
+.career-tag {
+    background: white;
+    color: var(--primary-dark);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    border: 1px solid rgba(43, 122, 62, 0.1);
+}
+.career-tag:hover { background: var(--primary-color); color: white; transform: scale(1.05); }
+/* ==========================================================
+   РОЗКЛАД ТА СТУДЕНТСЬКИЙ ПРОСТІР (Schedule)
+   ========================================================== */
+
+/* Сучасна таблиця (для розкладу дзвінків тощо) */
+.modern-table-wrapper {
+    overflow-x: auto; /* Щоб таблиця не ламала дизайн на телефонах */
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 40px;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.modern-table thead {
+    background: var(--primary-light);
+}
+
+.modern-table th {
+    padding: 18px 24px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.05rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.modern-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-dark);
+}
+
+.modern-table tbody tr {
+    transition: var(--transition);
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Карточки для завантаження розкладу (PDF / Google Sheets) */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.schedule-doc-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.schedule-doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-light);
+}
+
+.doc-icon {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.doc-info h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.doc-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+/* ==========================================================
+   ПРЕМИУМ КАРТОЧКА (Специальный класс для выделения)
+   ========================================================== */
+.link-card-premium {
+    position: relative;
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--radius); /* 16px */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.03);
+    /* Плавный пружинный эффект */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    z-index: 1;
+}
+
+/* Цветная градиентная линия сверху (скрыта по умолчанию) */
+.link-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+/* Эффекты ПРИ НАВЕДЕНИИ на карточку */
+.link-card-premium:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(43, 122, 62, 0.12); /* Зеленоватая тень */
+    border-color: rgba(43, 122, 62, 0.1);
+}
+
+/* Показываем верхнюю линию */
+.link-card-premium:hover::before {
+    transform: scaleX(1);
+}
+
+/* Дизайн иконки 📚 (в аккуратном квадратике) */
+.link-card-premium .link-icon {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: var(--bg-light); /* Светло-серый фон */
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+/* Анимация иконки при наведении */
+.link-card-premium:hover .link-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(43, 122, 62, 0.1); /* Становится бледно-зеленой */
+    box-shadow: 0 10px 20px rgba(43, 122, 62, 0.1);
+}
+
+.link-card-premium h3 {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: 1.35rem;
+    transition: color 0.3s ease;
+}
+
+.link-card-premium:hover h3 {
+    color: var(--primary-color); /* Заголовок зеленеет */
+}
+
+.link-card-premium p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Стрелочка "→", которая выезжает при наведении */
+.link-card-premium::after {
+    content: '→';
+    position: absolute;
+    bottom: 35px;
+    right: 30px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.link-card-premium:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* ==========================================================
+   АДАПТИВНІСТЬ (Мобільні пристрої)
+   ========================================================== */
+@media (max-width: 992px) {
+    .header-container { flex-direction: column; height: auto; padding: 20px 0; gap: 20px; }
+    .main-nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .main-nav a { padding: 10px 0; }
+    .stats-grid, .footer-grid, .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .links-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 3rem; }
+}
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .admission-steps::before { display: none; }
+    .step-item { flex-direction: column; text-align: center; align-items: center; padding: 30px; }
+}
+
