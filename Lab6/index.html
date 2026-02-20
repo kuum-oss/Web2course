@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Art Gallery | Бронювання</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="gallery-hero">
+    <div class="hero-overlay">
+        <div class="hero-box">
+            <span class="badge">Онлайн Експозиція</span>
+            <h1>Віртуальна Галерея</h1>
+            <p>Шедеври українського та світового мистецтва у вашому екрані</p>
+            <a href="#booking" class="btn-primary">Забронювати візит</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <section id="gallery" class="art-section">
+        <h2 class="section-title">Експозиція</h2>
+
+        <div class="gallery-grid">
+            <article class="art-card">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800" alt="Пробудження" class="artwork">
+                <div class="art-info-overlay">
+                    <div class="info-content">
+                        <h3>Пробудження</h3>
+                        <p class="author">Іван Марчук</p>
+                        <p class="description">Унікальна техніка «пльонтанізм», яка створює неймовірний об'єм.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="art-card">
+                <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=800" alt="Зоряна ніч" class="artwork">
+                <div class="art-info-overlay">
+                    <div class="info-content">
+                        <h3>Зоряна ніч</h3>
+                        <p class="author">Вінсент ван Гог</p>
+                        <p class="description">Один з найвідоміших творів постімпресіонізму.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="tour-steps">
+        <h2 class="section-title">Як відбувається візит</h2>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <h3>Оберіть програму</h3>
+                <p>Перегляньте наші поточні експозиції та оберіть ту, що вас надихає найбільше.</p>
+            </div>
+
+            <div class="step-card">
+                <h3>Заповніть форму</h3>
+                <p>Залиште свої контактні дані та побажання щодо часу в нашій системі.</p>
+            </div>
+
+            <div class="step-card">
+                <h3>Отримайте квиток</h3>
+                <p>Наш менеджер зв'яжеться з вами для підтвердження та надішле електронний квиток.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking-section">
+        <h2 class="section-title">Забронювати квиток</h2>
+
+        <div class="form-wrapper">
+            <form action="#" class="premium-form">
+
+                <div class="form-group">
+                    <label for="fullname">Ваше ПІБ</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Наприклад: Шевченко Тарас" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Електронна пошта</label>
+                    <input type="email" id="email" name="email" placeholder="taras@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tour-type">Тип екскурсії</label>
+                    <select id="tour-type" name="tour-type">
+                        <option value="classic">Класична виставка (Групова)</option>
+                        <option value="private">Індивідуальний гід (VIP)</option>
+                        <option value="audio">Аудіогід (Самостійно)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Особливі побажання</label>
+                    <textarea id="comments" name="comments" rows="4" placeholder="Напишіть ваші запитання або побажання щодо візиту..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Відправити заявку</button>
+
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer class="gallery-footer">
+    <div class="container">
+        <h2>The Gallery.</h2>
+        <p>© 2026 Всі права захищено. Мистецтво, що надихає.</p>
+    </div>
+</footer>
+
+</body>
+</html>
