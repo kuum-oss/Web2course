@@ -1,0 +1,190 @@
+/* --- БАЗОВІ НАЛАШТУВАННЯ --- */
+* {
+    /* ДЕМОНСТРАЦІЯ PADDING ТА MARGIN: Скидання стандартних відступів браузера */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* ДЕМОНСТРАЦІЯ BACKGROUND: Простий суцільний колір фону сторінки */
+    background-color: #f4f1ea; /* Теплий відтінок паперу */
+    color: #333;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Елегантний шрифт для заголовків */
+}
+
+/* Контейнер для обмеження ширини контенту */
+.container {
+    max-width: 1200px;
+    /* ДЕМОНСТРАЦІЯ MARGIN: Автоматичні відступи з боків для центрування (shorthand) */
+    margin: 0 auto;
+}
+
+/* --- ГОЛОВНИЙ БАНЕР (HERO) --- */
+.gallery-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ДЕМОНСТРАЦІЯ BACKGROUND (Всі можливі налаштування): */
+    /* 1. Лінійний градієнт для затемнення картинки */
+    /* 2. Зображення на фоні (background-image) */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=1280');
+    background-size: cover;             /* Розтягує фото на весь блок */
+    background-position: center;        /* Центрує зображення */
+    background-attachment: fixed;       /* Створює ефект паралаксу при прокручуванні */
+    background-repeat: no-repeat;       /* Забороняє повторення (хоча cover і так це робить) */
+}
+
+.hero-box {
+    text-align: center;
+    color: white;
+    /* ДЕМОНСТРАЦІЯ BORDER: Скляна рамка (glassmorphism) */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px; /* Заокруглені кути */
+
+    /* ДЕМОНСТРАЦІЯ PADDING: Внутрішні відступи: верх/низ 40px, право/ліво 60px */
+    padding: 40px 60px;
+
+    /* ДЕМОНСТРАЦІЯ BACKGROUND: Напівпрозорий фон (rgba) */
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px); /* Сучасний ефект розмиття фону */
+}
+
+.hero-box h1 {
+    font-size: 4rem;
+    /* ДЕМОНСТРАЦІЯ MARGIN: Індивідуальний нижній відступ */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* --- СЕКЦІЇ ГАЛЕРЕЇ --- */
+.art-section {
+    /* ДЕМОНСТРАЦІЯ PADDING: Індивідуальні відступи всередині секції */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ДЕМОНСТРАЦІЯ BACKGROUND: Альтернативний фон для другої секції */
+.alt-bg {
+    background-color: #ffffff;
+    /* ДЕМОНСТРАЦІЯ BORDER: Рамки зверху і знизу для виділення секції */
+    border-top: 1px solid #e0dcd3;
+    border-bottom: 1px solid #e0dcd3;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    /* ДЕМОНСТРАЦІЯ MARGIN: Відступ знизу перед картками */
+    margin-bottom: 50px;
+    color: #2c2c2c;
+    position: relative;
+}
+
+/* Декоративна лінія під заголовком */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #8b7355; /* Колір старої бронзи */
+    /* ДЕМОНСТРАЦІЯ MARGIN: Центрування лінії */
+    margin: 15px auto 0;
+}
+
+/* --- СІТКА ТА КАРТКИ (СУЧАСНИЙ ДИЗАЙН) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px; /* Відстань між картками */
+}
+
+.art-card {
+    background-color: #fff;
+    /* ДЕМОНСТРАЦІЯ BORDER: Ледь помітна рамка та заокруглення */
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+
+    /* Сучасна м'яка тінь */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-card:hover {
+    transform: translateY(-10px); /* Картка піднімається при наведенні */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Імітація паспарту (рами картини) */
+.frame {
+    /* ДЕМОНСТРАЦІЯ PADDING: Великі внутрішні відступи навколо фото */
+    padding: 30px;
+    /* ДЕМОНСТРАЦІЯ BACKGROUND: Колір внутрішньої рами */
+    background-color: #faf9f6;
+    /* ДЕМОНСТРАЦІЯ BORDER: Нижня межа рами */
+    border-bottom: 2px solid #eaeaea;
+}
+
+.artwork {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    /* ДЕМОНСТРАЦІЯ BORDER: Темна рамка навколо самої картини */
+    border: 8px solid #222;
+    border-radius: 4px;
+    /* Тінь для ефекту об'єму самої картини */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.art-info {
+    /* ДЕМОНСТРАЦІЯ PADDING: Відступи всередині блоку з текстом */
+    padding: 25px 30px;
+    text-align: center;
+}
+
+.art-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.author {
+    font-style: italic;
+    color: #8b7355;
+    font-weight: 600;
+    /* ДЕМОНСТРАЦІЯ MARGIN: Відступ знизу */
+    margin-bottom: 15px;
+}
+
+.description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- ФУТЕР --- */
+.gallery-footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    /* ДЕМОНСТРАЦІЯ PADDING: Великі відступи зверху і знизу */
+    padding: 40px 20px;
+    /* ДЕМОНСТРАЦІЯ BORDER: Верхня кольорова лінія */
+    border-top: 5px solid #8b7355;
+}
+
+/* Адаптивність для телефонів */
+@media (max-width: 768px) {
+    .hero-box h1 { font-size: 2.5rem; }
+    .hero-box { padding: 30px 20px; border-width: 1px; }
+    .frame { padding: 15px; }
+}
