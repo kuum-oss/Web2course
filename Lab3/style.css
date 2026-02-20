@@ -1,0 +1,386 @@
+/* ==========================================================
+   1. СУЧАСНІ НАЛАШТУВАННЯ (Змінні та Скидання)
+   ========================================================== */
+:root {
+    /* --- Типографіка (4 шрифти згідно завдання) --- */
+    --font-heading: 'Oswald', sans-serif;
+    --font-serif: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-code: 'Fira Code', monospace;
+
+    /* --- Сучасна кольорова палітра --- */
+    --color-primary: #4f46e5;    /* Глибокий індиго */
+    --color-primary-dark: #3730a3;
+    --color-accent: #ff6b6b;     /* Кораловий акцент */
+    --color-text-dark: #1e293b;  /* Темний графіт */
+    --color-text-muted: #64748b; /* Приглушений сірий */
+    --color-bg-light: #f8fafc;   /* Дуже світлий фон */
+    --color-bg-alt: #f1f5f9;     /* Альтернативний фон секції */
+    --color-white: #ffffff;
+
+    /* --- Ефекти --- */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    --radius-md: 12px;
+    --radius-lg: 24px;
+}
+
+/* Скидання та базова блочна модель */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Критично для коректної роботи Box Model */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+    line-height: 1.75; /* Більше повітря в тексті */
+    font-size: 17px;   /* Трохи більший базовий шрифт */
+    overflow-x: hidden;
+}
+
+/* ==========================================================
+   2. ТИПОГРАФІЯ ТА ЗАГАЛЬНІ СТИЛІ
+   ========================================================== */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-dark);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4rem; /* Дуже великий заголовок */
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.text-center { text-align: center; }
+
+.section-lead {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ==========================================================
+   3. СУЧАСНИЙ ХЕДЕР (ГЕРОЙ-СЕКЦІЯ)
+   ========================================================== */
+.main-header {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    color: var(--color-white);
+    padding: 120px 0 100px; /* Багато простору зверху і знизу */
+    overflow: hidden;
+}
+
+/* Декоративний патерн на фоні */
+.header-bg-pattern {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.1;
+    background-image: radial-gradient(circle at 1px 1px, var(--color-white) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin-top: 20px;
+}
+
+/* ==========================================================
+   4. СЕКЦІЇ ТА КОНТЕНТ
+   ========================================================== */
+.lesson-section {
+    padding: 100px 0; /* Збільшені відступи між секціями */
+}
+
+.alt-bg {
+    background-color: var(--color-bg-alt);
+    position: relative;
+}
+
+/* Сітка для контенту */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-top: 64px;
+}
+
+/* Список шрифтів */
+.font-list {
+    list-style: none;
+    margin-top: 32px;
+}
+
+.font-list li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.font-label {
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 12px;
+    color: var(--color-white);
+}
+.oswald-label { background-color: var(--color-text-dark); }
+.merriweather-label { background-color: var(--color-accent); }
+.roboto-label { background-color: var(--color-primary); }
+.mono-label { background-color: var(--color-text-muted); }
+
+.font-name {
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+.merriweather-text { font-family: var(--font-serif); }
+.code-text { font-family: var(--font-code); }
+
+/* Оформлення коду в тексті */
+.code-snippet {
+    font-family: var(--font-code);
+    background-color: #e2e8f0;
+    color: var(--color-primary-dark);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    border: 1px solid #cbd5e1;
+}
+
+/* Зображення з сучасною тінню та заокругленням */
+.image-wrapper {
+    position: relative;
+}
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+}
+.shadow-lg { box-shadow: var(--shadow-xl); }
+
+/* Сучасна цитата */
+.modern-quote {
+    position: relative;
+    background-color: var(--color-white);
+    padding: 40px 40px 40px 80px;
+    border-radius: var(--radius-lg);
+    margin: 80px auto 0;
+    max-width: 900px;
+    box-shadow: var(--shadow-md);
+    border-left: 6px solid var(--color-accent);
+}
+
+.quote-icon {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    color: var(--color-accent);
+    opacity: 0.5;
+}
+
+.modern-quote p {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--color-text-dark);
+}
+
+.modern-quote cite {
+    display: block;
+    margin-top: 20px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--color-text-muted);
+    font-style: normal;
+}
+
+/* ==========================================================
+   5. ДЕМОНСТРАЦІЯ BOX MODEL ТА OUTLINE (СУЧАСНИЙ ПІДХІД)
+   ========================================================== */
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 64px;
+}
+
+.card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* --- ДЕМОНСТРАЦІЯ BOX MODEL --- */
+.box-model-wrapper {
+    position: relative;
+    /* Імітація Margin за допомогою відступів у батьківському блоці */
+    padding: 40px;
+    background-color: #e0e7ff; /* Світло-синій колір для зони Margin */
+    border: 2px dashed #a5b4fc;
+}
+
+.margin-area-label {
+    position: absolute;
+    top: 10px; left: 20px;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.box-model-demo {
+    background-color: var(--color-white);
+    /* BOX MODEL: Padding (внутрішній відступ) */
+    padding: 40px;
+    /* BOX MODEL: Border (рамка) */
+    border: 6px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+/* --- ДЕМОНСТРАЦІЯ OUTLINE --- */
+.outline-wrapper {
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outline-demo {
+    background-color: var(--color-bg-alt);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    cursor: pointer;
+    /* Початковий стан - без рамки і контуру */
+    border: none;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* СУЧАСНИЙ ЕФЕКТ КОНТУРУ ПРИ ФОКУСІ/НАВЕДЕННІ */
+.outline-demo:hover, .outline-demo:focus-within {
+    /* 1. Використовуємо outline */
+    outline: 3px solid var(--color-primary);
+    outline-offset: 6px; /* Відсуваємо контур від елемента */
+
+    /* 2. Додаємо світіння за допомогою box-shadow для краси */
+    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0.1);
+    background-color: var(--color-white);
+}
+
+.btn-demo {
+    margin-top: 20px;
+    padding: 10px 24px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.outline-demo:focus-within .btn-demo {
+    background-color: var(--color-accent);
+}
+
+
+/* ==========================================================
+   6. ФУТЕР
+   ========================================================== */
+.main-footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-muted);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.reference-text {
+    font-size: 0.9rem;
+    margin-top: 24px;
+    opacity: 0.7;
+}
+
+/* ==========================================================
+   7. АДАПТИВНІСТЬ (RESPONSIVE)
+   ========================================================== */
+@media (max-width: 992px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    .content-grid { grid-template-columns: 1fr; gap: 40px; }
+    .modern-quote { padding: 30px 30px 30px 60px; }
+}
+
+@media (max-width: 768px) {
+    .main-header { padding: 80px 0 60px; }
+    h1 { font-size: 2.5rem; }
+    .demo-grid { grid-template-columns: 1fr; }
+    .box-model-wrapper, .outline-wrapper { padding: 20px; }
+    .box-model-demo, .outline-demo { padding: 25px; }
+}

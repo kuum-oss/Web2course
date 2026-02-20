@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сучасний Веб-дизайн для початківців</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-bg-pattern"></div>
+    <div class="container header-content">
+        <span class="badge">Навчальний посібник 2026</span>
+        <h1>Основи сучасного Веб-дизайну</h1>
+        <p class="subtitle">Від ідеї до коду: гід для початківців</p>
+    </div>
+</header>
+
+<main>
+
+    <section class="lesson-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>1. Магія Типографіки</h2>
+                <p class="section-lead">Типографіка — це 95% веб-дизайну. Вона створює настрій та ієрархію.</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>У сучасному дизайні шрифти — це головний інструмент. На цій сторінці ми комбінуємо чотири різні гарнітури для створення візуального ритму:</p>
+                    <ul class="font-list">
+                        <li><span class="font-label oswald-label">Заголовки</span> <span class="font-name">Oswald</span> — Масивний, привертає увагу.</li>
+                        <li><span class="font-label merriweather-label">Акценти</span> <span class="font-name merriweather-text">Merriweather</span> — Елегантний, для цитат.</li>
+                        <li><span class="font-label roboto-label">Основний текст</span> <span class="font-name">Roboto</span> — Чистий, легко читається.</li>
+                        <li><span class="font-label mono-label">Код</span> <span class="font-name code-text">Fira Code</span> — Для технічних термінів, наприклад <span class="code-snippet">&lt;div&gt;</span> або <span class="code-snippet">color: #ff6b6b;</span>.</li>
+                    </ul>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800" alt="Макбук з кодом" class="responsive-img shadow-lg">
+                </div>
+            </div>
+
+            <blockquote class="modern-quote">
+                <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 11L8 17H5L7 11H5V8H10V11ZM18 11L16 17H13L15 11H13V8H18V11Z"/>
+                </svg>
+                <p>"Хороший дизайн — це якнайменше дизайну. Це не про те, як воно виглядає, а про те, як воно працює."</p>
+                <cite>— Стів Джобс (адаптовано для вебу)</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="lesson-section alt-bg section-box-model">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>2. Блочна модель та Контури</h2>
+                <p class="section-lead">Фундамент верстки. Кожен елемент на сторінці — це прямокутник зі своїми правилами.</p>
+            </div>
+
+            <div class="demo-grid">
+                <div class="card demo-card box-model-wrapper">
+                    <div class="margin-area-label">Margin (Зовнішній відступ)</div>
+                    <div class="box-model-demo">
+                        <h3>Box Model у дії</h3>
+                        <p>Цей блок демонструє класичну модель: <br>
+                            <code>Margin</code> (прозора зона зовні), <br>
+                            <code>Border</code> (кольорова рамка), <br>
+                            <code>Padding</code> (відступ всередині).</p>
+                    </div>
+                </div>
+
+                <div class="card demo-card outline-wrapper">
+                    <div class="outline-demo" tabindex="0">
+                        <h3>Інтерактивний Контур (Outline)</h3>
+                        <p><strong>Наведіть мишку або натисніть Tab.</strong><br>
+                            На відміну від рамки (Border), <code>outline</code> не займає місця в потоці документу і часто використовується для фокусу.</p>
+                        <button class="btn-demo">Спробуй фокус тут</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-logo">WebDesign Start 2026</div>
+        <p>© Навчальний проєкт. Створено для демонстрації можливостей CSS.</p>
+        <p class="reference-text">Джерело: Брюханова Г. В. Комп'ютерні дизайн-технології. – 2019.</p>
+    </div>
+</footer>
+
+</body>
+</html>

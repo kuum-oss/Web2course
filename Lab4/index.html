@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сучасний Веб-дизайн | Навігація</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="top-navbar">
+    <div class="nav-container">
+        <div class="logo">WebDesign<span>Pro</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Головна</a></li>
+            <li class="dropdown">
+                <a href="#topics" class="dropbtn">Теми ▾</a>
+                <div class="dropdown-content">
+                    <a href="#typography">Типографіка</a>
+                    <a href="#box-model">Блочна модель</a>
+                    <a href="#colors">Кольорознавство</a>
+                </div>
+            </li>
+            <li><a href="#resources">Ресурси</a></li>
+            <li><a href="#contacts">Контакти</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header id="home" class="main-header">
+    <div class="header-bg-pattern"></div>
+    <div class="container header-content">
+        <span class="badge">Урок 4</span>
+        <h1>Навігація та Списки</h1>
+        <p class="subtitle">Створюємо зручну структуру сучасного сайту</p>
+    </div>
+</header>
+
+<div class="layout-wrapper container">
+
+    <aside class="sidebar">
+        <div class="sidebar-menu">
+            <h3>Зміст уроку</h3>
+            <ul class="vertical-links">
+                <li><a href="#typography">1. Типографіка (Шрифти)</a></li>
+                <li><a href="#box-model">2. Блочна модель (Box)</a></li>
+                <li><a href="#lists-demo">3. Оформлення списків</a></li>
+                <li><a href="#frameworks">4. Популярні фреймворки</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <section id="typography" class="lesson-section">
+            <h2>1. Магія Типографіки</h2>
+            <p>У сучасному дизайні шрифти — це головний інструмент. Вони створюють візуальний ритм та ієрархію на сторінці.</p>
+            <blockquote class="modern-quote">
+                "Навігація — це не просто меню. Це карта, яка веде користувача до мети без зайвих зусиль."
+            </blockquote>
+        </section>
+
+        <section id="box-model" class="lesson-section alt-bg">
+            <h2>2. Блочна модель (Box Model)</h2>
+            <p>Кожен елемент — це прямокутник. Ось як розподіляється простір:</p>
+            <div class="box-model-demo">
+                <h3>Демонстрація</h3>
+                <p>Margin -> Border -> Padding -> Content</p>
+            </div>
+        </section>
+
+        <section id="lists-demo" class="lesson-section">
+            <h2>3. Робота зі списками</h2>
+            <p>Списки допомагають структурувати інформацію. У сучасному дизайні ми відходимо від стандартних чорних крапок.</p>
+
+            <div class="lists-grid">
+                <div class="list-card">
+                    <h3>Етапи веб-дизайну</h3>
+                    <ul class="custom-bullet-list">
+                        <li>Аналіз цільової аудиторії</li>
+                        <li>Створення прототипу (Wireframe)</li>
+                        <li>Підбір кольорів та типографіки</li>
+                        <li>Верстка (HTML + CSS)</li>
+                        <li>Тестування та реліз</li>
+                    </ul>
+                </div>
+
+                <div class="list-card">
+                    <h3>Топ навичок розробника</h3>
+                    <ol class="custom-number-list">
+                        <li>Знання семантичного HTML5</li>
+                        <li>Впевнене володіння CSS Grid/Flexbox</li>
+                        <li>Розуміння адаптивного дизайну</li>
+                        <li>Основи JavaScript</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-logo">WebDesign<span>Pro</span></div>
+        <p>© Навчальний проєкт 2026. Горизонтальна та вертикальна навігація.</p>
+        <p class="reference-text">Література: Брюханова Г. В. Комп'ютерні дизайн-технології.</p>
+    </div>
+</footer>
+
+</body>
+</html>
